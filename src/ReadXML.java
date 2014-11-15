@@ -63,7 +63,14 @@ public class ReadXML {
                 continuar = false;
             }  
         } 
-        return _comparator.toString()+"\n";
+        
+        it = _comparator.iterator();
+        String retorno = "";
+        for (int i = 0; i<4; i++){
+            if (it.hasNext())
+                retorno += it.next()+", ";
+        }
+        return retorno+"\n";
     }
     
 }
