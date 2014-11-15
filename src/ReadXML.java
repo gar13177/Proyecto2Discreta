@@ -70,6 +70,8 @@ public class ReadXML {
             if (it.hasNext())
                 retorno += it.next()+", ";
         }
+        if (retorno.length()==0)
+            retorno = "No hay predicciones";
         return retorno;
     }
     
