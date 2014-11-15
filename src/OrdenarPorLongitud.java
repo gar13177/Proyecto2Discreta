@@ -1,4 +1,5 @@
 
+import static java.lang.Math.abs;
 import java.util.Comparator;
 
 /*
@@ -12,14 +13,18 @@ import java.util.Comparator;
  */
 public class OrdenarPorLongitud implements Comparator<String> {
 
+    String cadena;
     public OrdenarPorLongitud(String cadena) {
+        this.cadena = cadena;
     }
 
     @Override
     public int compare(String n1, String n2){
+        int n1L = abs(n1.length()-cadena.length());
+        int n2L = abs(n2.length()-cadena.length());
         
-        if (n1.length()-n2.length()!=0){
-            return n1.length()-n2.length();
+        if (n1L-n2L!=0){
+            return n1L-n2L;
         }
         return -1;
     }
