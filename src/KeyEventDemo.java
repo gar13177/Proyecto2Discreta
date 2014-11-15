@@ -84,7 +84,7 @@ public class KeyEventDemo extends JFrame
     private static void createAndShowGUI() {
         
         //Create and set up the window.
-        KeyEventDemo frame = new KeyEventDemo("KeyEventDemo");
+        KeyEventDemo frame = new KeyEventDemo("Diccionario");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         //Set up the content pane.
@@ -145,7 +145,7 @@ public class KeyEventDemo extends JFrame
             displayArea.append("Si exite\n");
             //jLabel1.setText("Si existe");
         else
-            displayArea.append(archivo.getNear(typingArea.getText()));
+            displayArea.append(archivo.getNear(typingArea.getText())+"\n");
             //jLabel1.setText("No existe");
     }
     

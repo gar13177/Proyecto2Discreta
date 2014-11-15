@@ -70,7 +70,7 @@ public class ReadXML {
             if (it.hasNext())
                 retorno += it.next()+", ";
         }
-        return retorno+"\n";
+        return retorno;
     }
     
 }
