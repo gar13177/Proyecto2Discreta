@@ -20,6 +20,9 @@ public class OrdenarPorLongitud implements Comparator<String> {
 
     @Override
     public int compare(String n1, String n2){
+        n1 = n1.replace(cadena,"");
+        n2 = n2.replace(cadena,"");
+        
         int n1L = abs(n1.length()-cadena.length());
         int n2L = abs(n2.length()-cadena.length());
         

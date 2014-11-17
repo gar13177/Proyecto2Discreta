@@ -54,11 +54,12 @@ public class ReadXML {
         while (continuar){
             if (cadena.length()!= 0){
                 cadena = cadena.substring(0,cadena.length()-1);
+                System.out.println(cadena);
                 while (it.hasNext()){
                     temp = it.next();
                     if (temp.contains(cadena))
                         _comparator.add(temp);
-                }
+                }   
             }else{
                 continuar = false;
             }  
