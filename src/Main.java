@@ -70,6 +70,11 @@ public class Main extends JFrame
         
         JButton button = new JButton("Clear");
         button.addActionListener(this);
+        button.setActionCommand("boton");
+        
+        JButton change = new JButton("Change");
+        change.addActionListener(this);
+        change.setActionCommand("change");
         
         
         typingArea = new JTextField(20);
@@ -91,6 +96,8 @@ public class Main extends JFrame
         getContentPane().add(typingArea, BorderLayout.PAGE_START);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
         getContentPane().add(button, BorderLayout.PAGE_END);
+        getContentPane().add(change, BorderLayout.EAST);
+        displayArea.append("Busqueda inclusiva\n");
     }
     
     public Main(String name) {
@@ -121,11 +128,20 @@ public class Main extends JFrame
     
     /** Handle the button click. */
     public void actionPerformed(ActionEvent e) {
-        //Clear the text components.
-        displayArea.setText("");
-        typingArea.setText("");
+        String temp = e.getActionCommand();
         
-        //Return the focus to the typing area.
-        typingArea.requestFocusInWindow();
+        if (temp.equals("boton")){
+            //Clear the text components.
+            displayArea.setText("");
+            typingArea.setText("");
+        
+            //Return the focus to the typing area.
+            typingArea.requestFocusInWindow();
+        }else if (temp.equals("change")){
+            archivo.change();
+            if (archivo.getNum()==1)  displayArea.append("Busqueda inclusiva\n");
+            else displayArea.append("Busqueda exacta\n");
+        }
+        
     }
 }

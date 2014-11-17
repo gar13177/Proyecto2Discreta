@@ -29,7 +29,7 @@ public class OrdenarPorLongitud implements Comparator<String> {
         if (n1L-n2L!=0){
             return n1L-n2L;
         }
-        return -1;
+        return 1;
     }
     
 }

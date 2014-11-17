@@ -21,6 +21,8 @@ import org.w3c.dom.NodeList;
  */
 public class ReadXML {
     private TreeSet palabras = new TreeSet();
+    private int _num = 1;
+            
     public ReadXML(){
         try {
             File fXmlFile = new File("diccionario.xml");
@@ -57,7 +59,9 @@ public class ReadXML {
                 //System.out.println(cadena);
                 while (it.hasNext()){
                     temp = it.next();
-                    if (temp.contains(cadena))
+                    if (temp.contains(cadena)&&_num==1)
+                        _comparator.add(temp);
+                    if (metodo(temp,cadena)&&_num==2)
                         _comparator.add(temp);
                 }   
                 cadena = cadena.substring(0,cadena.length()-1);
@@ -69,7 +73,7 @@ public class ReadXML {
         
         it = _comparator.iterator();
         String retorno = "";
-        for (int i = 0; i<4; i++){
+        for (int i = 0; i<5; i++){
             if (it.hasNext())
                 retorno += it.next()+", ";
         }
@@ -77,5 +81,27 @@ public class ReadXML {
             retorno = "No hay predicciones";
         return retorno;
     }
+    
+    public void change(){
+        if (_num == 1) _num = 2;
+        else _num = 1;
+    }
+    
+    public int getNum(){
+        return _num;
+    }
+    
+    private boolean metodo(String temp, String cadena){
+        int n1 = temp.length();
+        int n2 = cadena.length();
+        if (n2<n1) n1 = n2;
+        
+        for (int i = 0; i<n1;i++){
+            if (temp.charAt(i)!=cadena.charAt(i))
+                return false;
+        }
+        return true;
+    }
+    
     
 }
