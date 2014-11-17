@@ -53,13 +53,15 @@ public class ReadXML {
         String temp;
         while (continuar){
             if (cadena.length()!= 0){
-                cadena = cadena.substring(0,cadena.length()-1);
-                System.out.println(cadena);
+                
+                //System.out.println(cadena);
                 while (it.hasNext()){
                     temp = it.next();
                     if (temp.contains(cadena))
                         _comparator.add(temp);
                 }   
+                cadena = cadena.substring(0,cadena.length()-1);
+                
             }else{
                 continuar = false;
             }  
